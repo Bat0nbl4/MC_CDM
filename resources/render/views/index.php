@@ -1,3 +1,2 @@
-<?php \core\rendering\View::title("index"); ?>
+<?php \core\rendering\View::title(BASE_PAGE_NAME."Главная"); ?>
 
-<h1>HELLO WORLD!</h1>

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=M+PLUS+1p&display=swap');
+@import "logo.css";
+@import "btn.css";
+@import "cards.css";
+
+html {
+    --main-color: #32735F;
+    --primary-purple: #7b1fa2;
+}
+
+body {
+    background: linear-gradient(141deg,rgba(242, 247, 245, 1) 0%, rgba(242, 245, 247, 1) 100%);
+}
+
+a {
+    text-decoration: none;
+}
+
+.fs-05 {
+    font-size: calc(2rem + 1.5vw) !important;
+}
+
+main {
+    transition: 0.1s;
+}
+
+.header {
+    background-color: white;
+    border-bottom: solid 5px;
+    border-image: linear-gradient(110deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%) 1;
+}
+
+.text-main {
+    font-family: "M PLUS 1p", sans-serif;
+    color: var(--main-color);
+}
+
+.text-purple {
+    color: var(--primary-purple);
+}
+
+.nav-link {
+    transition: 0.1s;
+    color: black;
+    border-radius: 0 !important;
+    padding: 2px;
+}
+
+.nav-link:hover {
+    color: var(--primary-purple);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 0;
+}
+
+.line-gradient-light {
+    border-bottom: solid 3px;
+    border-image: linear-gradient(110deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%) 1;
+}
+
+.line-gradient-dark {
+    border-top: solid 5px;
+    border-image: linear-gradient(110deg, rgb(35, 31, 162) 0%, rgba(147, 31, 162, 1) 100%, rgba(123, 31, 162, 1) 50%) 1;
+}
+
+.contact {
+    width: 25px;
+    border-radius: 100px;
+}
+
+.footer {
+    background-color: #1e1e2a;
+}
+
+.footer-link {
+    color: var(--bs-gray);
+    padding-bottom: 1px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    padding-bottom: 0;
+    border-bottom: 1px dotted var(--main-color);
+}
+
+.fs-7 {
+    font-size: 0.85rem !important;
+}

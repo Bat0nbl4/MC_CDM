@@ -3,6 +3,9 @@
 use core\routing\Router;
 
 Router::get("/", [\controllers\main\MainController::class, "index"], "index");
+Router::get("/about", [\controllers\main\MainController::class, "about"], "about");
+Router::get("/contacts", [\controllers\main\MainController::class, "contacts"], "contacts");
+Router::get("/residents", [\controllers\main\MainController::class, "residents"], "residents");
 
 /* --- EXAMPLES ---
 Router::group("/user", function () {

@@ -1,0 +1,38 @@
+.logo {
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 900;
+    --logo-height: 60px;
+    --logo-height-md: 50px;
+    --logo-height-sm: 40px;
+}
+
+.logo .logo-img {
+    height: var(--logo-height);
+    padding-right: 5px;
+}
+
+.logo-text {
+    display: block;
+    font-size: calc(var(--logo-height)/3);
+    line-height: 1;
+}
+
+@media (max-width: 576px) {
+    .logo .logo-img {
+        height: var(--logo-height-sm);
+    }
+
+    .logo .logo-text {
+        font-size: calc(var(--logo-height-sm)/3);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo .logo-img {
+        height: var(--logo-height-md);
+    }
+
+    .logo .logo-text {
+        font-size: calc(var(--logo-height-md)/3);
+    }
+}
