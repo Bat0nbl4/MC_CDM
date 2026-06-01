@@ -1,7 +1,7 @@
 <?php \core\rendering\View::title(BASE_PAGE_NAME."Главная"); ?>
 
 <div class="container my-5 py-5">
-    <h1 class="text-center text-main">Твоя&nbsp;территория развития. Твой&nbsp;КДМ.</h1>
+    <h1 class="text-center text-main">Твоя&nbsp;территория&nbsp;развития. Твой&nbsp;Молодёжный&nbsp;Центр.</h1>
     <hr>
     <p class="text-center">Твоё будущее начинается здесь!</p>
     <div class="d-flex justify-content-center">

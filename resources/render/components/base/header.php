@@ -1,11 +1,9 @@
 <header class="fixed-top header bg-white p-2" id="header">
     <div class="container d-flex flex-wrap flex-row justify-content-center align-items-center gap-2">
         <a class="d-flex flex-row text-decoration-none me-auto logo" href="<?php echo \core\routing\Router::route("index") ?>">
-            <img class="img-fluid logo-img" src="<?php echo \core\helpers\Resource::get("img/app/icon.svg") ?>">
             <span class="text-main logo-text">
-                КРАЕВОЙ<br>
-                ДВОРЕЦ<br>
-                МОЛОДЕЖИ
+                МОЛОДЁЖНЫЙ<br>
+                ЦЕНТР<br>
             </span>
         </a>
         <ul class="d-none d-lg-flex flex-row navbar-nav nav-pills gap-2 me-2">

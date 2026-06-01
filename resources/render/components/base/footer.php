@@ -3,10 +3,12 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="d-flex flex-column align-items-center mb-3">
-                    <a style="max-width: 250px" href="<?php echo \core\routing\Router::route("index") ?>">
-                        <img class="img-fluid" src="<?php echo \core\helpers\Resource::get("img/app/icon.svg") ?>">
+                    <a class="d-flex flex-row text-decoration-none me-auto logo" href="<?php echo \core\routing\Router::route("index") ?>">
+                        <span class="text-main logo-text">
+                            МОЛОДЁЖНЫЙ<br>
+                            ЦЕНТР<br>
+                        </span>
                     </a>
-                    <span class="text-center ">Краевой Дворец Молодёжи</span>
                 </div>
                 <p class="text-secondary">Учредитель&nbsp;—&nbsp;управление молодёжной политики и реализации программ общественного развития Алтайского края</p>
             </div>
@@ -49,9 +51,8 @@
                         <a class="footer-link" href="<?php echo \core\routing\Router::route("contacts") ?>">Контакты</a>
                     </div>
                     <div class="w-100 d-flex flex-column gap-2">
-                        <a class="footer-link" href="#">Обратная связь</a>
-                        <a class="footer-link" href="#">Пресс-служба</a>
                         <a class="footer-link" href="<?php echo \core\routing\Router::route("event.list") ?>">Календарь мероприятий</a>
+                        <a class="footer-link" href="<?php echo \core\routing\Router::route("user.lk") ?>">Личный кабинет</a>
                     </div>
                 </div>
             </div>
@@ -77,8 +78,8 @@
         <hr class="text-secondary">
         <div class="row">
             <div class="col-12 text-center">
-                <span class="text-secondary">© 2003—2026 КГАУ «Краевой дворец молодёжи». Все права защищены.</span><br>
-                <span class="text-secondary fs-7">Разработка и поддержка — Пресс-служба КДМ</span>
+                <span class="text-secondary">© 2003—2026 КГАУ «Молодёжный центр». Все права защищены.</span><br>
+                <span class="text-secondary fs-7">Разработка и поддержка — Пресс-служба МЦ</span>
             </div>
         </div>
     </div>
