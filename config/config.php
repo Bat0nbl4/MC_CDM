@@ -11,4 +11,4 @@ const TEMPLATES_DIR = RESOURCE_PATH."/render/templates";
 const BASE_TEMPLATE = "app";
 const VIEW_DIR = RESOURCE_PATH."/render/views";
 
-const BASE_PAGE_NAME = "КДМ | ";
+const BASE_PAGE_NAME = "МЦ | ";

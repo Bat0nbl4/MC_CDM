@@ -23,7 +23,7 @@ abstract class IsAuthMiddleware extends Middleware
         // Check if user session data is missing (user is not authenticated)
         if (!Session::has("user")) {
             // Redirect unauthenticated users to login page
-            Router::redirect(Router::route("login"));
+            Router::redirect(Router::route("user.login"));
         }
 
         // If user session exists, continue with request (allow access to protected page)

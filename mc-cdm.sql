@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.2
--- Время создания: Май 31 2026 г., 20:56
+-- Время создания: Июн 01 2026 г., 17:09
 -- Версия сервера: 8.2.0
 -- Версия PHP: 8.3.6
 
@@ -41,6 +41,13 @@ CREATE TABLE `appoint` (
 --
 
 TRUNCATE TABLE `appoint`;
+--
+-- Дамп данных таблицы `appoint`
+--
+
+INSERT INTO `appoint` (`id`, `user_id`, `event_id`) VALUES
+(1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -203,7 +210,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `appoint`
 --
 ALTER TABLE `appoint`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `event`

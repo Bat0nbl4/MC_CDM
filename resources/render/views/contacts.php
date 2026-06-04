@@ -5,7 +5,7 @@
     <span class="text-secondary fs-7">Свяжитесь с нами удобным способом</span>
     <div class="row mt-5">
         <div class="col-12 col-lg-6 mb-4">
-            <h2>КГАУ «Краевой дворец молодёжи»</h2>
+            <h2>КГАУ «Молодёжный центр»</h2>
             <p><b>Директор:</b> Коробков Александр Евгеньевич</p>
             <p>📞 <a href="tel:+73852559468">+7 (3852) 559-468</a> (приёмная)</p>
             <p>📧 <a href="mailto:delo@altaikdm.ru">delo@altaikdm.ru</a></p>
