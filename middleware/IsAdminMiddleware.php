@@ -22,9 +22,9 @@ abstract class IsAdminMiddleware extends Middleware
     {
         // Check if user's role is not "Администратор" (Administrator)
         // Uses loose comparison (!=) to allow type coercion if needed
-        if (Session::get("user.role.sys_name") != "admin") {
+        if (Session::get("user.role.short_name") != "admin") {
             // Redirect non-admin users to 403 forbidden page
-            Router::redirect(Router::route("403"));
+            Router::redirect(Router::route("index"));
         }
 
         // If user has admin role, continue with request (allow access to admin page)

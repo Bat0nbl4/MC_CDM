@@ -14,6 +14,9 @@
         </ul>
         <div class="d-flex flex-row gap-2">
             <?php if (\core\session\Session::has("user")): ?>
+                <?php if (\core\session\Session::get("user.role.short_name") == "admin"): ?>
+                    <a class="btn btn-outline-main" href="<?php echo \core\routing\Router::route("admin.panel") ?>">Админ панель</a>
+                <?php endif; ?>
                 <a class="btn btn-main" href="<?php echo \core\routing\Router::route("user.lk") ?>">Мой кабинет</a>
             <?php else: ?>
                 <a class="btn btn-main" href="<?php echo \core\routing\Router::route("user.login") ?>">Войти</a>

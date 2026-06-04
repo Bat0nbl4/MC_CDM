@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.2
--- Время создания: Июн 01 2026 г., 17:09
+-- Время создания: Июн 05 2026 г., 02:33
 -- Версия сервера: 8.2.0
 -- Версия PHP: 8.3.6
 
@@ -33,7 +33,9 @@ USE `mc-cdm`;
 CREATE TABLE `appoint` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `event_id` int NOT NULL
+  `event_id` int NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `status_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -41,12 +43,32 @@ CREATE TABLE `appoint` (
 --
 
 TRUNCATE TABLE `appoint`;
+-- --------------------------------------------------------
+
 --
--- Дамп данных таблицы `appoint`
+-- Структура таблицы `appoint_status`
 --
 
-INSERT INTO `appoint` (`id`, `user_id`, `event_id`) VALUES
-(1, 2, 1);
+CREATE TABLE `appoint_status` (
+  `id` int NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sys_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `style` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Очистить таблицу перед добавлением данных `appoint_status`
+--
+
+TRUNCATE TABLE `appoint_status`;
+--
+-- Дамп данных таблицы `appoint_status`
+--
+
+INSERT INTO `appoint_status` (`id`, `name`, `sys_name`, `style`) VALUES
+(1, 'Подана', 'submitted', NULL),
+(2, 'Принята', 'accepted', NULL),
+(3, 'Отклоненна', 'rejected', NULL);
 
 -- --------------------------------------------------------
 
@@ -127,7 +149,8 @@ TRUNCATE TABLE `role`;
 --
 
 INSERT INTO `role` (`id`, `name`, `short_name`) VALUES
-(1, 'Пользователь', 'user');
+(1, 'Пользователь', 'user'),
+(2, 'Администратор', 'admin');
 
 -- --------------------------------------------------------
 
@@ -158,7 +181,7 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `patronymic`, `birthdate`, `email`, `phone`, `password`, `gender`, `role_id`) VALUES
-(2, 'Олег', 'Богомолов', 'Олегович', '2006-05-15', 'bat0nbl4@mail.ru', '+7 (983) 356-1527', '$2y$12$.hJ1f3.dPxqpnJ7cFJaIdOY1IIFMD2KsCTFQh.zrd6PaAXU93Siz2', 'М', 1),
+(2, 'Олег', 'Богомолов', 'Олегович', '2006-05-15', 'bat0nbl4@mail.ru', '+7 (983) 356-1527', '$2y$12$.hJ1f3.dPxqpnJ7cFJaIdOY1IIFMD2KsCTFQh.zrd6PaAXU93Siz2', 'М', 2),
 (3, 'Иван', 'Иванов', '', '2004-06-10', 'example@mail.ru', '+7 (800) 555-3535', '$2y$12$sYhevQ2kxoqoBoxAO/GTjOVxNjncNcb88yo3Vfr28cOd.HVApWE5i', 'М', 1);
 
 --
@@ -171,7 +194,14 @@ INSERT INTO `user` (`id`, `name`, `surname`, `patronymic`, `birthdate`, `email`,
 ALTER TABLE `appoint`
   ADD PRIMARY KEY (`id`),
   ADD KEY `appoint_user_FK` (`user_id`),
-  ADD KEY `appoint_event_FK` (`event_id`);
+  ADD KEY `appoint_event_FK` (`event_id`),
+  ADD KEY `appoint_appoint_status_FK` (`status_id`);
+
+--
+-- Индексы таблицы `appoint_status`
+--
+ALTER TABLE `appoint_status`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `event`
@@ -213,6 +243,12 @@ ALTER TABLE `appoint`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT для таблицы `appoint_status`
+--
+ALTER TABLE `appoint_status`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `event`
 --
 ALTER TABLE `event`
@@ -228,7 +264,7 @@ ALTER TABLE `event_status`
 -- AUTO_INCREMENT для таблицы `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
@@ -244,6 +280,7 @@ ALTER TABLE `user`
 -- Ограничения внешнего ключа таблицы `appoint`
 --
 ALTER TABLE `appoint`
+  ADD CONSTRAINT `appoint_appoint_status_FK` FOREIGN KEY (`status_id`) REFERENCES `appoint_status` (`id`),
   ADD CONSTRAINT `appoint_event_FK` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
   ADD CONSTRAINT `appoint_user_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 

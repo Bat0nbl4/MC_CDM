@@ -7,6 +7,12 @@ Router::get("/about", [\controllers\main\MainController::class, "about"], "about
 Router::get("/contacts", [\controllers\main\MainController::class, "contacts"], "contacts");
 Router::get("/residents", [\controllers\main\MainController::class, "residents"], "residents");
 
+Router::group("/admin", function () {
+    Router::group("", function () {
+        Router::get("/panel", [\controllers\admin\AdminController::class, "panel"], "admin.panel");
+    }, [\middleware\IsAuthMiddleware::class, \middleware\IsAdminMiddleware::class]);
+});
+
 Router::group("/user", function () {
     Router::group("", function () {
         Router::get("/logout", [\controllers\user\UserActionController::class, "logout"], "user.logout");
