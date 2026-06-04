@@ -13,7 +13,9 @@ class EventActionController extends Controller {
         if (empty(DB::query()->from("appoint")->where("user_id", "=", Session::get("user.id"))->where("event_id", "=", $id)->first())) {
             DB::query()->from("appoint")->insert([
                 "user_id" => Session::get("user.id"),
-                "event_id" => $id
+                "event_id" => $id,
+                "status_id" => 1,
+                "created_at" => date("Y-m-d H:i:s")
             ]);
             Router::redirect(Router::back(Router::route("event.show", ["id" => $id])));
         }

@@ -10,6 +10,9 @@ Router::get("/residents", [\controllers\main\MainController::class, "residents"]
 Router::group("/admin", function () {
     Router::group("", function () {
         Router::get("/panel", [\controllers\admin\AdminController::class, "panel"], "admin.panel");
+        Router::group("/appoint", function () {
+            Router::post("/put", [\controllers\admin\AdminActionController::class, "put"],"admin.appoint.put");
+        });
     }, [\middleware\IsAuthMiddleware::class, \middleware\IsAdminMiddleware::class]);
 });
 

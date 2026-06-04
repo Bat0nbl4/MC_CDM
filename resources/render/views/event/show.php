@@ -7,11 +7,13 @@
         <p class="fs-4"><?php echo $event["description"] ?></p>
         <div class="d-flex align-items-center gap-3 flex-wrap">
             <h4 class="m-0 <?php echo $event["status_style"] ?>"><?php echo $event["status"] ?></h4>
-            <?php if ($event["status"] == "Идёт набор" and !$is_appointed): ?>
+            <?php if ($event["status"] == "Идёт набор" and empty($appoint)): ?>
                 <button type="button" class="btn btn-main" data-bs-toggle="modal" data-bs-target="#event_signup">Записаться</button>
-            <?php elseif ($event["status"] == "Идёт набор" and $is_appointed): ?>
-                <span class="text-success alert alert-success px-2 py-1 m-0">
-                    Вы записаны
+            <?php elseif (!empty($appoint)): ?>
+                <?php $style = $appoint["status_style"] != null ? $appoint["status_style"] : "secondary" ?>
+                <span>Статус заявки:</span>
+                <span class="text-<?php echo $style ?> alert alert-<?php echo $style ?> px-2 py-1 m-0">
+                    <?php echo $appoint["status_name"] ?>
                 </span>
             <?php endif; ?>
             <span class="text-secondary ms-auto"><?php echo \core\helpers\Date::normal_date($event["end_date"]) ?></span>

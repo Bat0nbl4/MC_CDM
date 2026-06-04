@@ -50,9 +50,21 @@ class EventController extends Controller {
             ->where("event.id", "=", $id)
             ->first();
 
-        $is_appointed = false;
-        if (Session::has("user")) $is_appointed = !empty(DB::query()->from("appoint")->where("user_id", "=", Session::get("user.id"))->where("event_id", "=", $event["id"])->first());
+        $appoint = null;
+        if (Session::has("user")) {
+            $appoint = DB::query()
+                ->from("appoint")
+                ->select([
+                    "appoint_status.name as status_name",
+                    "appoint_status.sys_name as status",
+                    "appoint_status.style as status_style"
+                ])
+                ->where("user_id", "=", Session::get("user.id"))
+                ->where("event_id", "=", $event["id"])
+                ->join("appoint_status", "appoint_status.id","=","appoint.status_id")
+                ->first();
+        }
 
-        View::render("event/show", ["event" => $event, "is_appointed" => $is_appointed]);
+        View::render("event/show", ["event" => $event, "appoint" => $appoint]);
     }
 }
